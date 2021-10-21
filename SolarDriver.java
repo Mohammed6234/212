@@ -7,6 +7,7 @@ public class SolarDriver
 {
     SolarSystem newWindow = new SolarSystem(900,900);
     ArrayList<Planet> arrayOfPlanets = new ArrayList<>();
+    ArrayList<Moon> arrayOfMoons = new ArrayList<>();
     Sun newSun = new Sun(newWindow); //create sun
     
 
@@ -32,7 +33,7 @@ public class SolarDriver
     {
          arrayOfPlanets.add(new Planet(newWindow,0,100,50,"blue")); //create earth
          arrayOfPlanets.add(new Planet(newWindow,70,70,40,"red"));
-         arrayOfPlanets.add(new Moon(newWindow, 0, 100, 10));
+         arrayOfMoons.add(new Moon(newWindow, 0, 100, 10));
     }
 
     public void movePlanets()
@@ -43,6 +44,10 @@ public class SolarDriver
             for(int i=0; i< arrayOfPlanets.size() ;i++)
             {
                 arrayOfPlanets.get(i).movePlanet();
+            }
+            for(int i=0; i< arrayOfMoons.size() ;i++)
+            {
+                arrayOfMoons.get(i).movePlanet();
             }
             
     

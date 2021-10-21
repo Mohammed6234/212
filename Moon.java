@@ -7,7 +7,7 @@ public class Moon
 
     public Moon(SolarSystem window, int planetAngle, int planetDistance, int moonAngle)
     {
-        super(window, angle, distance, diameter, colour);
+        
         window.drawSolarObjectAbout(40, moonAngle, 10, "white", planetDistance, planetAngle);
         this.planetAngle = planetAngle;
         this.moonAngle = moonAngle;
