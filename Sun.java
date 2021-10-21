@@ -13,7 +13,7 @@ public class Sun
      */
     public Sun(SolarSystem window)
     {
-        window.drawSolarObject(0, 0, 70,"orange");
+        window.drawSolarObject(0, 0, 70,"yellow");
         windowStore = window;
     }
 
@@ -22,7 +22,7 @@ public class Sun
      */
     public void repaintSun()
     {
-        windowStore.drawSolarObject(0, 0, 70,"orange");
+        windowStore.drawSolarObject(0, 0, 70,"yellow");
     }
 
 }

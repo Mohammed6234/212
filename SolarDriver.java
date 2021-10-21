@@ -5,10 +5,9 @@ import java.util.ArrayList;
  */
 public class SolarDriver 
 {
-    SolarSystem newWindow = new SolarSystem(900,900);
-    ArrayList<Planet> arrayOfPlanets = new ArrayList<>();
-    ArrayList<Moon> arrayOfMoons = new ArrayList<>();
+    SolarSystem newWindow = new SolarSystem(1500,1200);
     Sun newSun = new Sun(newWindow); //create sun
+    ArrayList<SolarObject> arrayOfAllSolarObjects = new ArrayList<>();
     
 
     /**
@@ -17,23 +16,19 @@ public class SolarDriver
     public static void main(String[] args)
     {
         SolarDriver start = new SolarDriver();
-        
-        
         start.createPlanets();
-        //Moon earthMoon = new Moon(start.newWindow,0,100,50);
-        
         start.movePlanets();
-        
-        
-        
-        
     }
 
     public void createPlanets()
     {
-         arrayOfPlanets.add(new Planet(newWindow,0,100,50,"blue")); //create earth
-         arrayOfPlanets.add(new Planet(newWindow,70,70,40,"red"));
-         arrayOfMoons.add(new Moon(newWindow, 0, 100, 10));
+        arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue")); //create earth
+        arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red")); //create mars
+        arrayOfAllSolarObjects.add(new Planet(newWindow,0,375,60,"orange"));
+
+        arrayOfAllSolarObjects.add(new Moon(newWindow, 0, 250, 10,30)); //earths moon
+        arrayOfAllSolarObjects.add(new Moon(newWindow,70,100,10,27)); //mars 1st moon
+        arrayOfAllSolarObjects.add(new Moon(newWindow,70,100,180,27)); //mars 2nd moon
     }
 
     public void movePlanets()
@@ -41,13 +36,9 @@ public class SolarDriver
         while(true)
         {
             newSun.repaintSun();
-            for(int i=0; i< arrayOfPlanets.size() ;i++)
+            for(int i=0; i< arrayOfAllSolarObjects.size() ; i++)
             {
-                arrayOfPlanets.get(i).movePlanet();
-            }
-            for(int i=0; i< arrayOfMoons.size() ;i++)
-            {
-                arrayOfMoons.get(i).movePlanet();
+                arrayOfAllSolarObjects.get(i).movePlanet();
             }
             
     

@@ -2,7 +2,7 @@
  * This class creates the planets through a constructor. Also contains method to move the planets
  * @author Mohammed Patel
  */
-public class Planet
+public class Planet extends SolarObject
 {
     SolarSystem windowPlanet;
     int anglePlanet=0;
@@ -33,15 +33,19 @@ public class Planet
 
     
     /**
-	 * Moves the planet by redrawing as the finsihedDrawing class clears the screen
-	 *
-	 * @param angle the angle at which the planet should be redrawn at
+	 * Moves the planet by changing the angle and redrawing as the finsihedDrawing class clears the screen
 	 */
     public void movePlanet()
     {
         windowPlanet.drawSolarObject(distance, anglePlanet+1, diameter,colour);
         anglePlanet++;
 
+    }
+
+    public void movePlanetOpposite()
+    {
+        windowPlanet.drawSolarObject(distance, anglePlanet-1, diameter,colour);
+        anglePlanet--;
     }
     
     
