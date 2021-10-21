@@ -37,9 +37,11 @@ public class Planet
 	 *
 	 * @param angle the angle at which the planet should be redrawn at
 	 */
-    public void movePlanet(int angle)
+    public void movePlanet()
     {
-        windowPlanet.drawSolarObject(distance, angle, diameter,colour);
+        windowPlanet.drawSolarObject(distance, anglePlanet+1, diameter,colour);
+        anglePlanet++;
+
     }
     
     
