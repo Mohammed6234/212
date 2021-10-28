@@ -32,6 +32,7 @@ public class Moon extends SolarObject
         this.window = window;
         this.distance = distance;
         this.diameter = diameter;
+        getName("moon");
     }
 
     public void movePlanet()

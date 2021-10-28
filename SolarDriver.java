@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
+
 /**
  * This class creates the window for the planets and runs the movement and initialisation of the planets
  * @author Mohammed Patel
  */
-public class SolarDriver 
+public class SolarDriver implements SolarSystemController
 {
-    
+   
+    SolarSystemGUI newGUI = new SolarSystemGUI();
+
     SolarSystem newWindow = new SolarSystem(1000,900);
     Sun newSun = new Sun(newWindow); //create sun
     ArrayList<SolarObject> arrayOfAllSolarObjects = new ArrayList<>();
@@ -19,6 +22,7 @@ public class SolarDriver
     {
         
         SolarDriver start = new SolarDriver();
+        start.newGUI.addSolarSystemController(start);
         start.createPlanets();
         start.movePlanets();
     }
@@ -29,10 +33,10 @@ public class SolarDriver
     public void createPlanets()
     {
        
-        arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue")); //create earth
-        arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red")); //create mars
-        arrayOfAllSolarObjects.add(new Planet(newWindow,140,375,60,"orange")); // jupiter
-        arrayOfAllSolarObjects.add(new Planet(newWindow,230,50,20,"magenta")); // venus
+        arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue","earth")); //create earth
+        arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red","mars")); //create mars
+        arrayOfAllSolarObjects.add(new Planet(newWindow,140,375,60,"orange","jupiter")); // jupiter
+        arrayOfAllSolarObjects.add(new Planet(newWindow,230,50,20,"magenta","venus")); // venus
 
 
         arrayOfAllSolarObjects.add(new Moon(newWindow, 0, 250, 10,30,5)); //earths moon
@@ -81,6 +85,31 @@ public class SolarDriver
            // newWindow.finishedDrawing();
         }
     }
+
+    public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour)
+    {
+        //newGUI.addSolarSystemController(this);
+        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); //create earth
+    }
+    public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour,String parentName)
+    {
+        //newGUI.addSolarSystemController(this);
+        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); //create earth
+    }
+    public void remove(String name)
+    {
+        System.out.println("Clicked");
+        for(int i=0; i<arrayOfAllSolarObjects.size()-1;i++)
+        {
+            System.out.println(arrayOfAllSolarObjects.get(i).name);
+            if(arrayOfAllSolarObjects.get(i).name.equalsIgnoreCase(name) )
+            {
+                arrayOfAllSolarObjects.remove(i);
+            }
+        }
+    }
+
+    
        
     
 

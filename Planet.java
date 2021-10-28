@@ -9,6 +9,7 @@ public class Planet extends SolarObject
     int distance =0;
     int diameter =0;
     String colour ="";
+    String name ="";
     
     /**
 	 * Creates a planet through the parameters and puts it onto the window
@@ -18,8 +19,9 @@ public class Planet extends SolarObject
      * @param distance the distance to the sun of the planet
      * @param diameter the size of the planet
      * @param colour the colour of the planet
+     * @param name name of the planet
 	 */
-    public Planet(SolarSystem window, int angle, int distance, int diameter, String colour)
+    public Planet(SolarSystem window, int angle, int distance, int diameter, String colour,String name)
     {
         window.drawSolarObject(distance, angle, diameter,colour);
         windowPlanet = window;
@@ -27,7 +29,8 @@ public class Planet extends SolarObject
         this.distance = distance;
         this.diameter = diameter;
         this.anglePlanet = angle;
-        
+        this.name = name;
+        getName(name);
         
     }    
 
