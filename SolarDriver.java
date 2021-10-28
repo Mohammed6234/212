@@ -5,6 +5,7 @@ import java.util.ArrayList;
  */
 public class SolarDriver 
 {
+    
     SolarSystem newWindow = new SolarSystem(1000,900);
     Sun newSun = new Sun(newWindow); //create sun
     ArrayList<SolarObject> arrayOfAllSolarObjects = new ArrayList<>();
@@ -15,6 +16,7 @@ public class SolarDriver
 	 */
     public static void main(String[] args)
     {
+        
         SolarDriver start = new SolarDriver();
         start.createPlanets();
         start.movePlanets();
@@ -25,6 +27,7 @@ public class SolarDriver
 	 */
     public void createPlanets()
     {
+       
         arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue")); //create earth
         arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red")); //create mars
         arrayOfAllSolarObjects.add(new Planet(newWindow,140,375,60,"orange")); // jupiter
