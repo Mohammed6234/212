@@ -3,7 +3,7 @@
  * @author Mohammed Patel
  */
 
-public class Sun
+public class Sun extends SolarObject
 {
     SolarSystem windowStore;
 

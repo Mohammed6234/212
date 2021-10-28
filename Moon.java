@@ -9,6 +9,7 @@ public class Moon extends SolarObject
     int planetDistance;
     int moonAngle;
     int distance;
+    int diameter;
     SolarSystem window;
 
 
@@ -19,8 +20,9 @@ public class Moon extends SolarObject
 	 * @param planetAngle the angle at which the moon should appear in relative to the planet
      * @param planetDistance the distance to the planet of the sun
      * @param distance the distance of the moon to the planet
+     * @param diamater the diameter of the moon
 	 */
-    public Moon(SolarSystem window, int planetAngle, int planetDistance, int moonAngle, int distance)
+    public Moon(SolarSystem window, int planetAngle, int planetDistance, int moonAngle, int distance, int diameter)
     {
         
         window.drawSolarObjectAbout(distance, moonAngle, 10, "white", planetDistance, planetAngle);
@@ -29,17 +31,18 @@ public class Moon extends SolarObject
         this.planetDistance = planetDistance;
         this.window = window;
         this.distance = distance;
+        this.diameter = diameter;
     }
 
     public void movePlanet()
     {
-        window.drawSolarObjectAbout(distance, moonAngle-3, 10, "white", planetDistance, planetAngle+1);
+        window.drawSolarObjectAbout(distance, moonAngle-3, diameter, "white", planetDistance, planetAngle+1);
         planetAngle++;
         moonAngle= moonAngle-3;
     }
     public void movePlanetOpposite()
     {
-        window.drawSolarObjectAbout(distance, moonAngle+2, 10, "white", planetDistance, planetAngle+1);
+        window.drawSolarObjectAbout(distance, moonAngle+2, diameter, "white", planetDistance, planetAngle+1);
         planetAngle--;
         moonAngle= moonAngle+2;
     }
