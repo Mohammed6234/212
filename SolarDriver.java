@@ -89,6 +89,7 @@ public class SolarDriver implements SolarSystemController
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour)
     {
         //newGUI.addSolarSystemController(this);
+       
         arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); //create earth
     }
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour,String parentName)
@@ -98,12 +99,13 @@ public class SolarDriver implements SolarSystemController
     }
     public void remove(String name)
     {
-        System.out.println("Clicked");
-        for(int i=0; i<arrayOfAllSolarObjects.size()-1;i++)
+        //System.out.println("Clicked");
+        for(int i=0; i<arrayOfAllSolarObjects.size();i++)
         {
-            System.out.println(arrayOfAllSolarObjects.get(i).name);
+            //System.out.println(arrayOfAllSolarObjects.get(i).name);
             if(arrayOfAllSolarObjects.get(i).name.equalsIgnoreCase(name) )
             {
+                
                 arrayOfAllSolarObjects.remove(i);
             }
         }
