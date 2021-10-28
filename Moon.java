@@ -36,15 +36,15 @@ public class Moon extends SolarObject
 
     public void movePlanet()
     {
-        window.drawSolarObjectAbout(distance, moonAngle-3, diameter, "white", planetDistance, planetAngle+1);
+        window.drawSolarObjectAbout(distance, moonAngle-10, diameter, "white", planetDistance, planetAngle+1);
         planetAngle++;
-        moonAngle= moonAngle-3;
+        moonAngle= moonAngle-10;
     }
     public void movePlanetOpposite()
     {
-        window.drawSolarObjectAbout(distance, moonAngle+2, diameter, "white", planetDistance, planetAngle+1);
+        window.drawSolarObjectAbout(distance, moonAngle+10, diameter, "white", planetDistance, planetAngle+1);
         planetAngle--;
-        moonAngle= moonAngle+2;
+        moonAngle= moonAngle+10;
     }
 
 
