@@ -87,15 +87,12 @@ public class SolarDriver implements SolarSystemController
     }
 
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour)
-    {
-        //newGUI.addSolarSystemController(this);
-       
-        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); //create earth
+    {  
+        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); 
     }
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour,String parentName)
     {
-        //newGUI.addSolarSystemController(this);
-        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); //create earth
+        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); 
     }
     public void remove(String name)
     {

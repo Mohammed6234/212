@@ -1,6 +1,6 @@
 public class SolarObject 
 {
-    String name;
+    protected String name;
 
     public void movePlanet()
     {

@@ -11,6 +11,7 @@ public class Moon extends SolarObject
     int distance;
     int diameter;
     SolarSystem window;
+    
 
 
     /**
