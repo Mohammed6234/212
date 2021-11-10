@@ -81,11 +81,11 @@ public class SolarDriver implements SolarSystemController
             if(solarObject.name.equalsIgnoreCase(parentName))
             {
                 temp = solarObject;
+                arrayOfAllSolarObjects.add(new Moon(newWindow,(int)temp.anglePlanet,temp.distance,(int)initialAngle,(int)orbitalDistance,(int)size,speed,name,temp,colour));
             }
             
         }
-
-        arrayOfAllSolarObjects.add(Moon(newWindow,(int)temp.anglePlanet,temp.distance,(int)initialAngle,(int)orbitalDistance,(int)size,speed,name,temp,colour));
+      
         
     }
     public void remove(String name)
