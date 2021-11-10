@@ -11,7 +11,6 @@ public class SolarDriver implements SolarSystemController
     SolarSystemGUI newGUI = new SolarSystemGUI();
 
     SolarSystem newWindow = new SolarSystem(1000,900);
-    Sun newSun = new Sun(newWindow); //create sun
     ArrayList<SolarObject> arrayOfAllSolarObjects = new ArrayList<>();
     
 
@@ -32,18 +31,14 @@ public class SolarDriver implements SolarSystemController
 	 */
     public void createPlanets()
     {
-       
-        arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue","earth")); //create earth
-        arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red","mars")); //create mars
-        arrayOfAllSolarObjects.add(new Planet(newWindow,140,375,60,"orange","jupiter")); // jupiter
-        arrayOfAllSolarObjects.add(new Planet(newWindow,230,50,20,"magenta","venus")); // venus
+        arrayOfAllSolarObjects.add(new SolarObject(newWindow,0, 0, 70,"yellow","Sun"));
+        arrayOfAllSolarObjects.add(new Planet(newWindow,0,250,50,"blue","earth",1)); //create earth
+        arrayOfAllSolarObjects.add(new Planet(newWindow,70,100,40,"red","mars",1)); //create mars
+        arrayOfAllSolarObjects.add(new Planet(newWindow,140,375,60,"orange","jupiter",1)); // jupiter
+        arrayOfAllSolarObjects.add(new Planet(newWindow,230,50,20,"magenta","venus",1)); // venus
 
-
-        arrayOfAllSolarObjects.add(new Moon(newWindow, 0, 250, 10,30,5)); //earths moon
-        arrayOfAllSolarObjects.add(new Moon(newWindow,70,100,10,27,5)); //mars 1st moon
-        arrayOfAllSolarObjects.add(new Moon(newWindow,70,100,180,27,5)); //mars 2nd moon
-
-      
+        arrayOfAllSolarObjects.add(new Moon(newWindow,0,250,0,30,10,40,"Earths Moon",arrayOfAllSolarObjects.get(1),"white"));
+        
 
         for(int i=0; i<950; i++)
         {
@@ -54,17 +49,6 @@ public class SolarDriver implements SolarSystemController
         }
         
         
-        int jupiterAngle =0;
-        int jupiterMoonDistance =5;
-        for(int i =0; i<18; i++)
-        {
-            arrayOfAllSolarObjects.add(new Moon(newWindow,140,375,jupiterAngle,35,jupiterMoonDistance));
-            jupiterAngle = jupiterAngle + 20;
-            if(jupiterMoonDistance==5)
-                jupiterMoonDistance = jupiterMoonDistance +5;
-            else
-                jupiterMoonDistance = jupiterMoonDistance -5;
-        }
     }
 
      /**
@@ -75,7 +59,7 @@ public class SolarDriver implements SolarSystemController
         while(true)
         {
             newWindow.finishedDrawing();
-            newSun.repaintSun();
+            arrayOfAllSolarObjects.get(0).draw();
             for(int i=0; i< arrayOfAllSolarObjects.size() ; i++)
             {
                 arrayOfAllSolarObjects.get(i).movePlanet();
@@ -88,11 +72,21 @@ public class SolarDriver implements SolarSystemController
 
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour)
     {  
-        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); 
+        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name,speed)); 
     }
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour,String parentName)
     {
-        arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name)); 
+        SolarObject temp;
+        for (SolarObject solarObject : arrayOfAllSolarObjects) {
+            if(solarObject.name.equalsIgnoreCase(parentName))
+            {
+                temp = solarObject;
+            }
+            
+        }
+
+        arrayOfAllSolarObjects.add(Moon(newWindow,(int)temp.anglePlanet,temp.distance,(int)initialAngle,(int)orbitalDistance,(int)size,speed,name,temp,colour));
+        
     }
     public void remove(String name)
     {

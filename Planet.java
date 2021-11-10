@@ -4,52 +4,47 @@
  */
 public class Planet extends SolarObject
 {
-    SolarSystem windowPlanet;
-    int anglePlanet=0;
-    int distance =0;
-    int diameter =0;
-    String colour ="";
-    String name ="";
     
+    double velocity;
     /**
 	 * Creates a planet through the parameters and puts it onto the window
 	 *
-	 * @param window the window in which to draw the planet is
-	 * @param angle the angle at which the planet shoudl appear in relative to the sun
-     * @param distance the distance to the sun of the planet
-     * @param diameter the size of the planet
-     * @param colour the colour of the planet
-     * @param name name of the planet
+	 * @param velocity takes in velocity that planet needs to move at
 	 */
-    public Planet(SolarSystem window, int angle, int distance, int diameter, String colour,String name)
+    public Planet(SolarSystem window, int angle, int distance, int diameter, String colour,String name,double velocity)
     {
-        window.drawSolarObject(distance, angle, diameter,colour);
-        windowPlanet = window;
+        
+        //window.drawSolarObject(distance, angle, diameter,colour);
+        this.windowPlanet = window;
         this.colour = colour;
         this.distance = distance;
         this.diameter = diameter;
         this.anglePlanet = angle;
         this.name = name;
+        this.velocity = velocity;
         getName(name);
         
-    }    
-
+    }   
     
+  
+
+    @Override
+    public void draw()
+    {
+        windowPlanet.drawSolarObject(distance, anglePlanet, diameter,colour);
+    }
     /**
 	 * Moves the planet by changing the angle and redrawing as the finsihedDrawing class clears the screen
 	 */
     public void movePlanet()
     {
-        windowPlanet.drawSolarObject(distance, anglePlanet+1, diameter,colour);
-        anglePlanet++;
+        
+        windowPlanet.drawSolarObject(distance, anglePlanet+velocity, diameter,colour);
+        anglePlanet = anglePlanet + velocity;
 
     }
 
-    public void movePlanetOpposite()
-    {
-        windowPlanet.drawSolarObject(distance, anglePlanet-1, diameter,colour);
-        anglePlanet--;
-    }
+   
     
     
 }

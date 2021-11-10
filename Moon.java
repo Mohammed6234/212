@@ -5,13 +5,11 @@
 
 public class Moon extends SolarObject
 {
-    int planetAngle;
-    int planetDistance;
-    int moonAngle;
-    int distance;
-    int diameter;
-    SolarSystem window;
     
+    double moonAngle;
+    double velocity;
+    int planetDistance;
+    SolarObject orbit;
 
 
     /**
@@ -23,31 +21,34 @@ public class Moon extends SolarObject
      * @param distance the distance of the moon to the planet
      * @param diamater the diameter of the moon
 	 */
-    public Moon(SolarSystem window, int planetAngle, int planetDistance, int moonAngle, int distance, int diameter)
+    public Moon(SolarSystem window, int planetAngle, int planetDistance, int moonAngle, int distance, int diameter,double velocity,String name,SolarObject orbit,String colour)
     {
         
-        window.drawSolarObjectAbout(distance, moonAngle, 10, "white", planetDistance, planetAngle);
-        this.planetAngle = planetAngle;
+        //window.drawSolarObjectAbout(distance, moonAngle, 10, "white", planetDistance, planetAngle);
+        this.anglePlanet = planetAngle;
         this.moonAngle = moonAngle;
         this.planetDistance = planetDistance;
-        this.window = window;
+        this.windowPlanet = window;
         this.distance = distance;
         this.diameter = diameter;
-        getName("moon");
+        this.velocity = velocity;
+        this.name = name;
+        this.orbit = orbit;
+        this.colour = colour;
+    }
+
+    @Override
+    public void draw()
+    {
+        windowPlanet.drawSolarObjectAbout(distance, moonAngle, diameter, colour, planetDistance, anglePlanet);
     }
 
     public void movePlanet()
     {
-        window.drawSolarObjectAbout(distance, moonAngle-10, diameter, "white", planetDistance, planetAngle+1);
-        planetAngle++;
-        moonAngle= moonAngle-10;
+        windowPlanet.drawSolarObjectAbout(distance, moonAngle-velocity, diameter, colour, orbit.distance,orbit.anglePlanet);
+        moonAngle = moonAngle - velocity;
     }
-    public void movePlanetOpposite()
-    {
-        window.drawSolarObjectAbout(distance, moonAngle+10, diameter, "white", planetDistance, planetAngle+1);
-        planetAngle--;
-        moonAngle= moonAngle+10;
-    }
+   
 
 
 

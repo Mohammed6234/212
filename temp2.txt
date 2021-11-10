@@ -1,0 +1,84 @@
+switch(direction){
+		
+			case 0:
+
+				direction=0;
+				if(current.getWall(0) == false)
+				{
+					toMove = (MazeSquare) board.getSquareAt(startX-1, startY);
+					System.out.println("target x is " + toMove.getXLocation() + " and y is " + toMove.getYLocation());
+					if(toMove.target==true)
+					{
+						toMove.setHighlight(true);
+						return;
+					}
+					if(toMove.visited==false)
+					{
+						toMove.setHighlight(true);
+						findPath(startX-1, startY,direction);
+						break;
+					}
+				}
+
+		case 1:
+			direction =1;
+			if(current.getWall(1) == false)
+			{
+				toMove = (MazeSquare) board.getSquareAt(startX+1, startY);
+				System.out.println("target x is " + toMove.getXLocation() + " and y is " + toMove.getYLocation());
+
+				if(toMove.target==true)
+				{
+					toMove.setHighlight(true);
+					return;
+				}
+				if(toMove.visited==false)
+				{
+					toMove.setHighlight(true);
+					findPath(startX+1, startY,direction);
+					break;
+				}
+			}
+
+		case 2:
+			direction =2;
+			if(current.getWall(2) == false)
+			{
+				toMove = (MazeSquare) board.getSquareAt(startX, startY-1);
+				System.out.println("target x is " + toMove.getXLocation() + " and y is " + toMove.getYLocation());
+				if(toMove.target==true)
+				{
+					toMove.setHighlight(true);
+					return;
+				}
+				if(toMove.visited==false)
+				{
+					toMove.setHighlight(true);
+					findPath(startX, startY-1,direction);
+					break;
+				}
+			}
+			
+		case 3:
+			direction =3;
+			if(current.getWall(3) == false)
+			{
+				toMove = (MazeSquare) board.getSquareAt(startX, startY+1);
+				System.out.println("target x is " + toMove.getXLocation() + " and y is " + toMove.getYLocation());
+
+				if(toMove.target==true)
+				{
+					toMove.setHighlight(true);
+					return;
+				}
+				if(toMove.visited==false)
+				{
+					toMove.setHighlight(true);
+					findPath(startX, startY+1,direction);
+					break;
+				}
+				findPath(startX, startY, 0);
+			}
+			
+		
+		}

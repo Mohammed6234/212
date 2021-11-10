@@ -1,0 +1,33 @@
+GameSquare current = board.getSquareAt(startX, startY);
+		//traversed.add(current);
+		current.setHighlight(true);
+		System.out.println(this.target);
+		if(this.target == true)
+		{
+			System.out.println("Found");
+
+		}
+		else if((current.getWall(0) || board.getSquareAt(startX-1,startY).isHighlighted() ==true) == false) //check if left square is avaliable to move to
+		{
+			shortestCount++;
+			
+			findPath(startX-1, startY);
+		}
+		else if((current.getWall(2) || board.getSquareAt(startX,startY-1).isHighlighted()==true)==false ) // check above square availability
+		{
+			shortestCount++;
+			findPath(startX, startY-1);
+			
+		}
+		else if((current.getWall(1) || board.getSquareAt(startX+1,startY).isHighlighted()==true)==false ) //check right square availability
+		{
+			shortestCount++;
+			findPath(startX+1, startY);
+			
+		}
+		else if((current.getWall(3) || board.getSquareAt(startX,startY+1).isHighlighted()==true)==false ) //check below
+		{
+			shortestCount++;
+			findPath(startX, startY+1);
+		}
+		

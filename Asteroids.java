@@ -11,7 +11,7 @@ public class Asteroids extends Planet {
 
     public Asteroids(SolarSystem window, int angle,int distance)
     {
-        super(window, angle, distance, 1, "white","moon");
+        super(window, angle, distance, 1, "white","asteroids",1);
         this.windowPlanet = window;
         this.anglePlanet = angle;
         this.distance = distance;
