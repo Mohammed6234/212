@@ -6,10 +6,10 @@
 public class Moon extends SolarObject
 {
     
-    double moonAngle;
-    double velocity;
-    int planetDistance;
-    SolarObject orbit;
+    private double moonAngle;
+    private double velocity;
+    private int planetDistance;
+    private SolarObject orbit;
 
 
     /**
@@ -37,12 +37,18 @@ public class Moon extends SolarObject
         this.colour = colour;
     }
 
+     /**
+     * draws the planet using the method defined in solar window
+     */
     @Override
     public void draw()
     {
         windowPlanet.drawSolarObjectAbout(distance, moonAngle, diameter, colour, planetDistance, anglePlanet);
     }
 
+     /**
+	 * Moves the planet by changing the angle and redrawing as the finsihedDrawing class clears the screen
+	 */
     public void movePlanet()
     {
         windowPlanet.drawSolarObjectAbout(distance, moonAngle-velocity, diameter, colour, orbit.distance,orbit.anglePlanet);

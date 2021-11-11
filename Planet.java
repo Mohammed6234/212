@@ -5,7 +5,7 @@
 public class Planet extends SolarObject
 {
     
-    double velocity;
+    private double velocity;
     /**
 	 * Creates a planet through the parameters and puts it onto the window
 	 *
@@ -27,7 +27,9 @@ public class Planet extends SolarObject
     }   
     
   
-
+     /**
+     * draws the planet using the method defined in solar window
+     */
     @Override
     public void draw()
     {

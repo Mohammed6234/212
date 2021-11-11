@@ -70,10 +70,30 @@ public class SolarDriver implements SolarSystemController
         }
     }
 
+    /**
+	 * The method to add Planets through the GUI interface
+     * @param name name of planet
+     * @param orbitalDistance distance of the planet to the centre
+     * @param initialAngle the angle that the planet starts at
+     * @param size size of the planet
+     * @param speed velocity of planet
+     * @param colour colour of planet
+	 */
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour)
     {  
         arrayOfAllSolarObjects.add(new Planet(newWindow,(int)initialAngle,(int)orbitalDistance,(int)size,colour,name,speed)); 
     }
+
+    /**
+	 * The method to add a solar object through the GUI interface around another planet
+     * @param name name of planet
+     * @param orbitalDistance distance of the planet to the centre
+     * @param initialAngle the angle that the planet starts at
+     * @param size size of the planet
+     * @param speed velocity of planet
+     * @param colour colour of planet
+     * @param name of parent planet
+	 */
     public void add(String name, double orbitalDistance, double initialAngle, double size, double speed, String colour,String parentName)
     {
         SolarObject temp;
@@ -88,6 +108,10 @@ public class SolarDriver implements SolarSystemController
       
         
     }
+    /**
+     * Method to remove a planet from the Interface
+     * @param name name of planet that needs removing
+     */
     public void remove(String name)
     {
         //System.out.println("Clicked");

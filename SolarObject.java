@@ -8,6 +8,9 @@ public class SolarObject
      String colour ="";
     
 
+    /**
+     * Empty constructor to allow an instance of the class without needing to use the constructor
+     */
     public SolarObject()
     {
 
@@ -34,15 +37,26 @@ public class SolarObject
 
     }
 
+    /**
+     * draws the planet using the method defined in solar window
+     */
     public void draw()
     {
         windowPlanet.drawSolarObject(distance, anglePlanet, diameter, colour);
     }
+
+    /**
+     * method to be overrided by child classes
+     */
     public void movePlanet()
     {
 
     }
 
+    /**
+     * Gets name for whichever planet you currently have
+     * @param name
+     */
     public void getName(String name)
     {
         this.name = name;

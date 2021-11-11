@@ -1,14 +1,19 @@
 import java.util.Random;
 public class Asteroids extends Planet {
 
-    SolarSystem windowPlanet;
-    double anglePlanet=0;
-    int distance =0;
-    int diameter =1;
-    String colour ="white";
+    private SolarSystem windowPlanet;
+    private double anglePlanet=0;
+    private int distance =0;
+    private int diameter =1;
+    private String colour ="white";
     
     
-
+    /**
+     * Constructor to create asteroids
+     * @param window window of solar window
+     * @param angle angle of asteroids
+     * @param distance distance from Sun
+     */
     public Asteroids(SolarSystem window, int angle,int distance)
     {
         super(window, angle, distance, 1, "white","asteroids",1);
@@ -19,6 +24,9 @@ public class Asteroids extends Planet {
         
     }
 
+     /**
+	 * Moves the asteroids by changing the angle and redrawing as the finsihedDrawing class clears the screen
+	 */
     public void movePlanet()
     {
      
